@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>递归</title>
+</head>
+<body>
+    <div id="node">
+        <div>1
+            <div class="c">2</div>
+            <div>3</div>
+        </div>
+        <div class="c">4</div>
+        <div>5
+            <div>6</div>
+            <div class="c">7</div>
+        </div>
+        <div>8</div>
+    </div>
+    <script>
+        // 使用递归实现 getElementsByClassName
+
+        // 分析
+        // 1. 实现一个方法byClass()需要的参数是:
+        //     node: 在某个节点上寻找元素
+        //     className: 需要寻找的className
+        //     arr: 找到的元素存储到这个数组中
+        // 2. 遍历 node 的子节点,
+        // 3. 查看这个子节点是否还有子节点,如果没有直接存储到数组中,如果有就继续递归
+        var arr = [];
+        function byClass(node, className, arr) {
+            var list = node.childNodes;
+            for (var i = 0; i < list.length; i++) {
+                if (list[i].className == className){
+                    arr.push(list[i]);
+                }
+                if (list[i].childNodes.length > 0){
+                    byClass(list[i], className, arr);
+                }
+            }
+        }
+        var a = document.getElementById("node");+
+        byClass(a, "c", arr);
+        console.log(arr);
+    </script>
+    <script>
+        // 用递归写阶乘
+        // function fn(n) {
+        //     if (n == 1) {
+        //         return 1;
+        //     }
+        //     return fn(n-1)*n;
+        // }
+        // console.log(fn(5));
+
+        // 用递归求和
+        // function sum(n) {
+        //     if (n == 1){
+        //         return 1;
+        //     }
+        //     return sum(n-1) + n;
+        // }
+        // console.log(sum(100));
+
+        // Fibonacci数列，斐波那契数列，用递归求第n项的值
+        // 1,1,2,3,5,8,13,21,34,55,89...求第 n 项
+        // function fib(n) {
+        //     if (n == 0 || n == 1) {
+        //         return 1;
+        //     }
+        //     return fib(n-1) + fib(n-2);
+        //
+        // }
+        // console.log(fib(5));
+
+        // 求 2,4,6,8,10... 第n项与前n项之和
+        // function fn(n) {
+        //     if (n == 0) {
+        //         return 2;
+        //     }else{
+        //         return fn(n-1) + 2;
+        //     }
+        // }
+        // function sum(n) {
+        //     if (n == 0) {
+        //         return 2;
+        //     }
+        //     return fn(n) + sum(n-1);
+        // }
+        // console.log(fn(4));
+        // console.log(sum(4));
+    </script>
+</body>
+</html>

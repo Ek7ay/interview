@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组的处理</title>
+</head>
+<body>
+    <script>
+        // arrayObject.splice(index,howmany,item1,.....,itemX)
+        //     index	必需。整数，规定添加/删除项目的位置，使用负数可从数组结尾处规定位置。
+        //     howmany	必需。要删除的项目数量。如果设置为 0，则不会删除项目。
+        //     item1, ..., itemX	可选。向数组添加的新项目。
+        //     返回值，包含被删除项目的新数组，如果有的话。
+
+                var arr = new Array("George","John","Thomas","James","Adrew","Martin");
+                var a = arr.splice(2,2,"hello","world");
+                console.log(arr);
+                console.log(a);
+
+        // forEach
+        //     var arr = [1,2,3];
+        //     arr.forEach(function (item, index) {
+        //         console.log(item, index);
+        //     });
+
+        // every
+        //     var arr = [1, 2, 3];
+        //     var result = arr.every(function (item, index) {
+        //         //用来判断所有元素都符合一个条件
+        //         if (item < 4) {
+        //             return true;
+        //         }
+        //     });
+        //     console.log(result);
+
+        // some
+        //     var arr = [1, 2, 3];
+        //     var result = arr.some(function (item, index) {
+        //         // 用来判断所有的数组元素，只要有一个满足条件即可
+        //             return item < 2;
+        //     });
+        //     console.log(result);
+
+        // sort
+        //     var arr = [1, 4, 2, 3, 5];
+        //     var result = arr.sort(function (a, b) {
+        //         // 从小到大排序
+        //         // return a - b;
+        //         // 从大到小排序
+        //         return b - a;
+        //     });
+        //     console.log(result);
+        //     console.log(arr);
+
+        // map
+        //     var arr = [1, 2, 3, 4];
+        //     var arr2 = arr.map(function (item, index) {
+        //         return  "*" + item + "*";
+        //     });
+        //     console.log(arr2);
+        //     console.log(arr);
+
+        // filter
+        //     var arr = [1, 2, 3, 4, 5];
+        //     var arr2 = arr.filter(function (item, index) {
+        //         if (item > 2) {
+        //             return true;
+        //         }
+        //     });
+        //     console.log(arr2);
+        //     console.log(arr);
+    </script>
+</body>
+</html>

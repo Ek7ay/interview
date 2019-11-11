@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>promise</title>
+</head>
+<body>
+    <script>
+        // // callback-hell,常规js写回调函数
+
+        // function loadImg(src, callback, fail) {
+        //     var img = document.createElement("img");
+        //     img.onload = function () {
+        //         callback(img);
+        //     };
+        //     img.onerror = function () {
+        //         fail();
+        //     };
+        //     img.src = src;
+        // }
+        // var src = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551105562966&di=ce5bd7ba701217ffdbfc0dbc9b060329&imgtype=0&src=http%3A%2F%2Fpic.qtour.com%2FUpload%2Ftravel_line%2F2016-05%2F20160530160538533_76.jpg"
+        // loadImg(src,function (img) {
+        //     var body = document.body;
+        //     body.appendChild(img);
+        // },function () {
+        //     alert("fail");
+        // })
+
+        // promise写法
+        function loadImg(src) {
+            const promise = new Promise(function (resolve, reject) {
+                var img = document.createElement("img");
+                img.src = src;
+                img.onload = function () {
+                    resolve(img);
+                };
+                img.onerror = function () {
+                    reject();
+                };
+            });
+            return promise;
+        }
+        var src = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551105562966&di=ce5bd7ba701217ffdbfc0dbc9b060329&imgtype=0&src=http%3A%2F%2Fpic.qtour.com%2FUpload%2Ftravel_line%2F2016-05%2F20160530160538533_76.jpg"
+        var result = loadImg(src);
+        result.then(function (img) {
+            var body = document.body;
+            body.appendChild(img);
+        },function () {
+            alert("failed")
+        });
+        result.then(function (img) {
+            alert("success!")
+        });
+
+        // promise-串联
+        // function loadImg(src) {
+        //     const promise = new Promise(function (resolve, reject) {
+        //         var img = document.createElement("img");
+        //         // throw new Error("自定义错误");
+        //         img.src = src;
+        //         img.onload = function () {
+        //             resolve(img);
+        //         };
+        //         img.onerror = function () {
+        //             reject();
+        //         }
+        //     });
+        //     return promise;
+        // }
+        // var src1 = "http://m.tuniucdn.com/filebroker/cdn/snc/16/49/1649395ee6e2a550a0e73bfae82178b4_w800_h0_c0_t0.jpg";
+        // var result1 = loadImg(src1);
+        // var src2 = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551789733&di=e65c5d795899078c90ae3cb00816dc9b&imgtype=jpg&er=1&src=http%3A%2F%2Foa.zjctsg.com%2FFileSystem%2F2%2F201609%2F0000886933.png";
+        // var result2 = loadImg(src2);
+        // result1.then(function (img) {
+        //     var body = document.body;
+        //     body.appendChild(img);
+        //     console.log("1");
+        //     return result2;
+        // }).then(function (img) {
+        //     var body = document.body;
+        //     body.appendChild(img);
+        //     console.log("2");
+        // }).catch(function (err) {
+        //     console.log(err);
+        // });
+
+        // promise.all&&promise.race
+        // function loadImg(src) {
+        //     const promise = new Promise(function (resolve, reject) {
+        //         var img = document.createElement("img");
+        //         img.src = src;
+        //         img.onload = function () {
+        //             resolve(img);
+        //         };
+        //         img.onerror = function () {
+        //             reject();
+        //         }
+        //     });
+        //     return promise;
+        // }
+        // var src1 = "http://m.tuniucdn.com/filebroker/cdn/snc/16/49/1649395ee6e2a550a0e73bfae82178b4_w800_h0_c0_t0.jpg";
+        // var result1 = loadImg(src1);
+        // var src2 = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551789733&di=e65c5d795899078c90ae3cb00816dc9b&imgtype=jpg&er=1&src=http%3A%2F%2Foa.zjctsg.com%2FFileSystem%2F2%2F201609%2F0000886933.png";
+        // var result2 = loadImg(src2);
+        // Promise.all([result1,result2]).then(function (datas) {
+        //     console.log(datas);
+        //     console.log(datas[0],datas[1]);
+        // });
+        // Promise.race([result1,result2]).then(function (data) {
+        //     console.log(data);
+        // });
+    </script>
+</body>
+</html>

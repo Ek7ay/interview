@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>class和普通构造函数区别</title>
+</head>
+<body>
+    <script>
+        // 普通js的写法声明类
+        // function HandleMath(x, y) {
+        //     this.x = x;
+        //     this.y = y;
+        // }
+        // HandleMath.prototype.add = function () {
+        //     return this.x + this.y;
+        // };
+        // var m = new HandleMath(1, 2);
+        // console.log(m.add());
+
+        // class语法声明类
+        class HandleMath {
+            constructor(x, y){
+                this.x = x;
+                this.y = y;
+            }
+            add(){
+                return this.x + this.y;
+            }
+        }
+        var m = new HandleMath(1, 2);
+        var n = m.add();
+        console.log(n);
+        console.log(typeof HandleMath);
+        console.log(HandleMath.prototype.constructor === HandleMath);
+        console.log(m.__proto__ === HandleMath.prototype);
+    </script>
+</body>
+</html>
