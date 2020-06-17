@@ -17,18 +17,39 @@
         //     return temp;
         // }
 
-        function uniq2(arr) {
-            var temp = new Array();
-            for (var i = 0; i < arr.length; i++) {
-                if (arr.indexOf(arr[i]) == i) {
-                    temp.push(arr[i])
-                }
-            }
-            return temp;
-        }
+        // function uniq2(arr) {
+        //     var temp = [];
+        //     for (var i = 0; i < arr.length; i++) {
+        //         if (arr.indexOf(arr[i]) == i) {
+        //             temp.push(arr[i])
+        //         }
+        //     }
+        //     return temp;
+        // }
+        // var b = uniq2(aa);
+        // console.log(b);
 
-        var b = uniq2(aa);
-        console.log(b);
+        // forEach
+        // function unique(arr) {
+        //     const res = [];
+        //     arr.forEach(item => {
+        //         if(res.indexOf(item) < 0) {
+        //             res.push(item)
+        //         }
+        //     });
+        //     return res;
+        // }
+        // const res = unique(aa);
+        // console.log(res);
+
+        // set （ES6 ，无序，不能重复）
+        function fn(arr) {
+            const set = new Set(arr);
+            return [...set];
+        }
+        const res = fn(aa);
+        console.log(res);
+
     </script>
 </body>
 </html>
