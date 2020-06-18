@@ -45,6 +45,14 @@
         // }
         // var res = fn(str);
         // console.log(res);
+
+        // 将一句话的单词进行倒置，标点不倒置。比如 I like beijing. 经过函数后变为：beijing. like I
+        const str = "I like beijing.";
+        function fn(str) {
+            return str.split(" ").reverse().join(" ");
+        }
+        const res = fn(str);
+        console.log(res);
     </script>
 </body>
 </html>
