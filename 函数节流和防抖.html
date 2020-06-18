@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>函数的节流和防抖</title>
+</head>
+
+<body>
+    <input type="text" id="debounce">
+    <script>
+        // 函数防抖
+        const input1 = document.getElementById("debounce")
+
+        let timer = null;
+        input1.addEventListener('keyup', function() {
+            if(timer) {
+                clearTimeout(timer)
+            }
+            timer = setTimeout(function() {
+                console.log(input1.value)
+                timer = null;
+            }, 500)
+        })
+    </script>
+</body>
+
+</html>
