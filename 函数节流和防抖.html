@@ -4,10 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <title>函数的节流和防抖</title>
+    <style>
+        #throttle {
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
 </head>
 
 <body>
     <input type="text" id="debounce">
+    <div id="throttle" draggable="true">可拖拽，测试节流</div>
     <script>
         // 函数防抖
         const input1 = document.getElementById("debounce")
@@ -22,7 +34,31 @@
                 timer = null;
             }, 500)
         })
+
+
+        //函数节流
+        const div1 = document.getElementById("throttle");
+
+        let timer2 = null;
+        div1.addEventListener("drag", function(e) {
+            if(timer2) {
+                return
+            }
+
+            timer2 = setTimeout(function() {
+                console.log(e.offsetX, e.offsetY) 
+                timer2 = null;       
+            }, 500)
+            
+        })
+
+
+
+
+
     </script>
+
+    
 </body>
 
 </html>
