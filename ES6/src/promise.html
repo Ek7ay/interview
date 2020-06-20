@@ -27,30 +27,30 @@
         // })
 
         // promise写法
-        function loadImg(src) {
-            const promise = new Promise(function (resolve, reject) {
-                var img = document.createElement("img");
-                img.src = src;
-                img.onload = function () {
-                    resolve(img);
-                };
-                img.onerror = function () {
-                    reject();
-                };
-            });
-            return promise;
-        }
-        var src = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551105562966&di=ce5bd7ba701217ffdbfc0dbc9b060329&imgtype=0&src=http%3A%2F%2Fpic.qtour.com%2FUpload%2Ftravel_line%2F2016-05%2F20160530160538533_76.jpg"
-        var result = loadImg(src);
-        result.then(function (img) {
-            var body = document.body;
-            body.appendChild(img);
-        },function () {
-            alert("failed")
-        });
-        result.then(function (img) {
-            alert("success!")
-        });
+        // function loadImg(src) {
+        //     const promise = new Promise(function (resolve, reject) {
+        //         var img = document.createElement("img");
+        //         img.src = src;
+        //         img.onload = function () {
+        //             resolve(img);
+        //         };
+        //         img.onerror = function () {
+        //             reject();
+        //         };
+        //     });
+        //     return promise;
+        // }
+        // var src = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551105562966&di=ce5bd7ba701217ffdbfc0dbc9b060329&imgtype=0&src=http%3A%2F%2Fpic.qtour.com%2FUpload%2Ftravel_line%2F2016-05%2F20160530160538533_76.jpg"
+        // var result = loadImg(src);
+        // result.then(function (img) {
+        //     var body = document.body;
+        //     body.appendChild(img);
+        // },function () {
+        //     alert("failed")
+        // });
+        // result.then(function (img) {
+        //     alert("success!")
+        // });
 
         // promise-串联
         // function loadImg(src) {
@@ -109,6 +109,32 @@
         // Promise.race([result1,result2]).then(function (data) {
         //     console.log(data);
         // });
+
+
+        // 练习
+        const imgSrc = "http://img0.pchouse.com.cn/pchouse/1407/01/737771_14.jpg"
+        
+        function imgLoad(src) {
+            const res = new Promise(function(resolve, reject) {
+                const img = document.createElement("img");
+                img.src = src;
+                img.onload = function() {
+                    resolve(img)
+                }
+                img.onerror = function(err) {
+                    reject(err);
+                }
+            });
+            return res;
+        }
+
+        const result = imgLoad(imgSrc);
+        result.then(function(img) {
+            const body = document.body;
+            body.appendChild(img)
+        }).catch(function(err) {
+            console.log(err)
+        })
     </script>
 </body>
 </html>
