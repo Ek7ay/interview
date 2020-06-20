@@ -25,6 +25,33 @@
         console.log(obj1);
         console.log(obj2);
 
+        function deepClone(obj) {
+            if(typeof obj !== "object" || obj == null) {
+                return obj
+            }
+
+            let res;
+
+            if(obj instanceof Array) {
+                res = []
+            } else {
+                res = {}
+            }
+
+            for (let key in obj) {
+                if (obj.hasOwnProperty(key)) {
+                    res[key] = deepClone(obj[key])
+                }
+            }
+
+            return res;
+        }
+
+
+
+
+
+
         /**
          * 深拷贝
          * @param {Object} obj 要拷贝的对象
@@ -54,30 +81,6 @@
         //     // 返回结果
         //     return result
         // }
-
-
-        function deepClone(obj) {
-            if(typeof obj !== 'object' || obj == null) {
-                return obj
-            }
-
-            let res;
-
-            if(obj instanceof Array) {
-                res = [];
-            } else {
-                res = {};
-            }
-
-            for(let key in obj) {
-                if(obj.hasOwnProperty(key)) {
-                    res[key] = deepClone(obj[key])
-                }
-            }
-
-            return res;
-        }
-
 
     </script>
 </body>
