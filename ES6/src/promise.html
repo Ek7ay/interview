@@ -121,8 +121,8 @@
                 img.onload = function() {
                     resolve(img)
                 }
-                img.onerror = function(err) {
-                    reject(err);
+                img.onerror = function() {
+                    reject("图片加载异常");
                 }
             });
             return res;
