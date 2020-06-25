@@ -1,32 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="renderer" content="webkit">
-    <style>
-        /* #dd{
-            background-color: chocolate;
-            /*width: 100px;*/
-            /*height: 100px;*/
-            /*position: fixed;*/
-            /*left: 0;*/
-            /*top: 0;*/
-            /*right: 0;*/
-            /*bottom: 0;*/
-            /*margin: auto;*/
-            /*!*margin-left: -50px;*!*/
-            /*!*margin-top: -50px;*!*/
-            /*!*transform: translate(-50%,-50%);*!*/
-            /* width: 20%;
-            padding-top: 20%;
-        } */ 
-
-
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>div水平垂直居中</title>
 </head>
 <body>
-    <div id="dd"></div>
+    <!-- flex -->
+    <section>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .box {
+                width: 200px;
+                height: 200px;
+                background-color: slateblue;
+            }
+        </style>
+        <article>
+            <div class="box">
+                flex
+            </div>
+        </article>
+    </section>
+
+    <!-- transform -->
+    <!-- <section>
+        <style>
+            .box {
+                width: 200px;
+                height: 200px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: tomato;
+            }
+        </style>
+        <article>
+            <div class="box">
+                transform
+            </div>
+        </article>
+    </section> -->
+
+    <!-- 负边距 -->
+    <!-- <section>
+        <style>
+            .box {
+                width: 200px;
+                height: 200px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin-top: -100px;
+                margin-left: -100px;
+                background-color: blue;
+            }
+        </style>
+        <article>
+            <div class="box">
+                负边距
+            </div>
+        </article>
+    </section> -->
 </body>
 </html>
