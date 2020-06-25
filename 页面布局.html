@@ -4,31 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>页面布局</title>
-    <style>
-        .box div {
-            height: 100px;
-        }
-        .left {
-            background-color: gold;
-            width: 300px;
-            float: left;
-        }
-        .right {
-            background-color: green;
-            width: 300px;
-            float: right;
-        }
-        .center {
-            background-color: red;
-        }
-    </style>
 </head>
 <body>
-    <div class="box">
-        <div class="left"></div>
-        <div class="right"></div>
-        <div class="center">浮动解决方案浮动解决方案浮动解决方案浮动解决方案浮动解决
-            方案浮动解决方案浮动解决方案浮动解决方案浮动解决方案浮动解决方案浮动解决方案浮动解决方案浮动解决方案浮动解决方案浮动解决方案</div>
-    </div>
+    <!-- 运维平台布局 -->
+    <section>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+            }
+            .box {
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                /* justify-content: space-between; */
+            }
+            .head {
+                height: 60px;
+                background-color: blue;
+            }
+            .content {
+                flex: 1;
+                background-color: darkgreen;
+                display: flex;
+            }
+            .left{
+                width: 200px;
+                height: 100%;
+                background-color: rgb(223, 17, 17);
+            }
+            .right {
+                flex: 1;   /* 包含 flex-grow、flex-shrink、flex-basis*/
+                height: 100%;
+                background-color: rgb(73, 196, 201);
+            }
+        </style>
+        <article class="box">
+            <div class="head">
+
+            </div>
+            <div class="content">
+                <div class="left">
+        
+                </div>
+                <div class="right">
+                    
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <!-- <section>
+        <style>
+            .box div {
+                height: 100px;
+            }
+            .left {
+                background-color: gold;
+                width: 300px;
+                float: left;
+            }
+            .right {
+                background-color: green;
+                width: 300px;
+                float: right;
+            }
+            .center {
+                background-color: red;
+            }
+        </style>
+        <article>
+            <div class="box">
+            <div class="left"></div>
+            <div class="right"></div>
+            <div class="center">浮动解决方案浮动解决方案浮动解决方案浮动解决方案浮动解决
+                方案浮动解决方案浮动解决方案浮动解决方案浮动解决方案浮动解决方案浮动解决方案浮动解决方案浮动解决方案浮动解决方案浮动解决方案</div>
+            </div>
+        </article>
+    </section>
+     -->
 </body>
 </html>
