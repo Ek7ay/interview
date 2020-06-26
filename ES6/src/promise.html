@@ -27,30 +27,37 @@
         // })
 
         // promise写法
-        // function loadImg(src) {
-        //     const promise = new Promise(function (resolve, reject) {
-        //         var img = document.createElement("img");
+        // const imgSrc = "http://img0.pchouse.com.cn/pchouse/1407/01/737771_14.jpg"
+        // console.log("1");
+        
+        // function imgLoad(src) {
+        //     console.log("2");
+        //     const res = new Promise(function(resolve, reject) {
+        //         const img = document.createElement("img");
+        //         console.log("3")
         //         img.src = src;
-        //         img.onload = function () {
-        //             resolve(img);
-        //         };
-        //         img.onerror = function () {
-        //             reject();
-        //         };
+        //         img.onload = function() {
+        //             resolve(img)
+        //             console.log("4")
+        //         }
+        //         img.onerror = function() {
+        //             reject("图片加载异常");
+        //         }
         //     });
-        //     return promise;
+        //     return res;
         // }
-        // var src = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551105562966&di=ce5bd7ba701217ffdbfc0dbc9b060329&imgtype=0&src=http%3A%2F%2Fpic.qtour.com%2FUpload%2Ftravel_line%2F2016-05%2F20160530160538533_76.jpg"
-        // var result = loadImg(src);
-        // result.then(function (img) {
-        //     var body = document.body;
-        //     body.appendChild(img);
-        // },function () {
-        //     alert("failed")
-        // });
-        // result.then(function (img) {
-        //     alert("success!")
-        // });
+        // const result = imgLoad(imgSrc);
+        
+        // result.then(function(img) {
+        //     const body = document.body;
+        //     body.appendChild(img)
+        //     console.log("5")
+        // }).catch(function(err) {
+        //     console.log(err)
+        // })
+        // console.log("6")
+
+        // 输出顺序 1 2 3 6 4 5
 
         // promise-串联
         // function loadImg(src) {
@@ -112,29 +119,69 @@
 
 
         // 练习
+
         const imgSrc = "http://img0.pchouse.com.cn/pchouse/1407/01/737771_14.jpg"
-        
+
         function imgLoad(src) {
-            const res = new Promise(function(resolve, reject) {
+            const res = new Promise((resolve, reject) => {
                 const img = document.createElement("img");
                 img.src = src;
                 img.onload = function() {
-                    resolve(img)
+                    resolve(img);
                 }
                 img.onerror = function() {
-                    reject("图片加载异常");
+                    reject("图片加载异常")
                 }
             });
             return res;
         }
 
-        const result = imgLoad(imgSrc);
-        result.then(function(img) {
-            const body = document.body;
-            body.appendChild(img)
-        }).catch(function(err) {
-            console.log(err)
-        })
+        // const result = imgLoad(imgSrc);
+
+        // result.then((img) => {
+        //     const body = document.body;
+        //     body.appendChild(img)
+        // }).catch((err) => {
+        //     console.log(err)
+        // })
+
+        async function fn() {
+            try {
+                const v = await imgLoad(imgSrc)
+                const body = document.body;
+                body.appendChild(v);
+            } catch(err) {
+                console.log(err)
+            }
+        }
+        fn();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </script>
 </body>
 </html>
