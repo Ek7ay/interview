@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Object.defineProperty</title>
+</head>
+<body>
+    <script>
+        let data = {}
+        let name = "zhangsan"
+        Object.defineProperty(data, "name", {
+            get: function() {
+                console.log("get")
+                return name
+            },
+            set: function(val) {
+                name = val
+                console.log("set")
+            }
+        })
+        console.log(data.name)
+        data.name = "lisi"
+    </script>
+</body>
+</html>
