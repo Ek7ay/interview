@@ -5,7 +5,7 @@
     <title>递归</title>
 </head>
 <body>
-    <div id="node">
+    <!-- <div id="node">
         <div>1
             <div class="c">2</div>
             <div>3</div>
@@ -42,8 +42,20 @@
         var a = document.getElementById("node");+
         byClass(a, "c", arr);
         console.log(arr);
-    </script>
+    </script> -->
     <script>
+        function fn(n) {
+            if(n == 1) {
+                return 1
+            }
+            console.log(n)
+            return n + fn(n-1)
+        }
+
+        const res = fn(100);
+        console.log(res)
+
+
         // 用递归写阶乘
         // function fn(n) {
         //     if (n == 1) {
