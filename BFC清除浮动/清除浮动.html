@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>清除浮动</title>
+    <style>
+        .container {
+            background-color: #666;
+        }
+        .left {
+            float: left;
+        }
+        .bfc {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <!-- BFC   Block format context    块级格式化上下文 -->
+    <!-- 一块独立渲染区域，内部元素的渲染不会影响边界以外的元素 -->
+
+
+    <div class="container bfc">
+        <img src="https://www.imooc.com/static/img/index/logo2020.png" alt="" class="left">
+        <p class="bfc">快将灰尘掸落，别将你眼眸弄脏</p>
+    </div>
+    <script>
+       
+    </script>
+</body>
+</html>
