@@ -5,7 +5,7 @@
     <title>递归</title>
 </head>
 <body>
-    <div id="node">
+    <!-- <div id="node">
         <div>1
             <div class="c">2</div>
             <div>3</div>
@@ -42,8 +42,24 @@
         var a = document.getElementById("node");+
         byClass(a, "c", arr);
         console.log(arr);
-    </script>
+    </script> -->
     <script>
+        // 猴子吃桃子问题
+        let res = 1;
+        function fn(num) {
+            if(num == 0) {
+                return
+            }
+            
+            res = (res + 1)*2;
+            num--;
+            fn(num)
+            return res;
+        }
+
+        let re = fn(2);
+        console.log(re);
+
         // 用递归写阶乘
         // function fn(n) {
         //     if (n == 1) {
