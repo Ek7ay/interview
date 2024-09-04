@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>手写工具函数</title>
+</head>
+
+<body>
+    <div id="el">
+
+    </div>
+    <script>
+    
+    let arrObj = [
+    { name: "小红", id: 1 },
+    { name: "小橙", id: 1 },
+    { name: "小黄", id: 4 },
+    { name: "小绿", id: 3 },
+    { name: "小青", id: 1 },
+    { name: "小蓝", id: 4 }
+];
+
+
+    const arr =  arrObj.map(item => item.id )
+    const arr1 =  [...new Set(arr)]
+    console.log(arr1)
+    const obj = []
+    arr1.forEach(item => {
+      obj.push(arrObj.find(item1 => item1.id === item))   
+    })
+
+    console.log(obj)
+
+    </script>
+
+
+</body>
+
+</html>

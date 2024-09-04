@@ -25,30 +25,28 @@
         console.log(obj1);
         console.log(obj2);
 
-        function deepClone(obj) {
-            if(typeof obj !== "object" || obj == null) {
+        function deepClone(obj = {}) {
+            if (typeof obj !== 'object' || obj == null) {
                 return obj
             }
 
-            let res;
-
-            if(obj instanceof Array) {
-                res = []
+            let result
+            if (obj instanceof Array) {
+                result = []
             } else {
-                res = {}
+                result = {}
             }
 
             for (let key in obj) {
                 if (obj.hasOwnProperty(key)) {
-                    res[key] = deepClone(obj[key])
+                    result[key] = deepClone(obj[key])
                 }
             }
+            
+            return result
 
-            return res;
+
         }
-
-
-
 
 
 

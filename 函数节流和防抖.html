@@ -22,43 +22,82 @@
     <div id="throttle" draggable="true">可拖拽，测试节流</div>
     <script>
         // 函数防抖
-        const input1 = document.getElementById("debounce")
 
-        let timer = null;
-        input1.addEventListener('keyup', function() {
-            if(timer) {
-                clearTimeout(timer)
-            }
-            timer = setTimeout(function() {
-                console.log(input1.value)
-                timer = null;
-            }, 500)
-        })
+        // const debounce = (fn, delay = 500) => {
+        //     let timer = null
+        //     return function () {
+        //         if (timer) {
+        //             clearTimeout(timer)
+        //         }
+
+        //         timer = setTimeout(() => {
+        //             fn()
+        //             timer = null
+        //         }, delay)
+        //     }
+        // }
+
+        // const input = document.getElementById('debounce')
+        // input.addEventListener('keyup', debounce(() => {
+        //     console.log(input.value)
+        // }, 600))
+
+
+
+        // const input1 = document.getElementById("debounce")
+        // let timer = null;
+        // input1.addEventListener('keyup', function() {
+        //     if(timer) {
+        //         clearTimeout(timer)
+        //     }
+        //     timer = setTimeout(function() {
+        //         console.log(input1.value)
+        //         timer = null;
+        //     }, 500)
+        // })
 
 
         //函数节流
-        const div1 = document.getElementById("throttle");
+        // const div1 = document.getElementById("throttle");
 
-        let timer2 = null;
-        div1.addEventListener("drag", function(e) {
-            if(timer2) {
-                return
-            }
+        // let timer2 = null;
+        // div1.addEventListener("drag", function (e) {
+        //     if (timer2) {
+        //         return
+        //     }
 
-            timer2 = setTimeout(function() {
-                console.log(e.offsetX, e.offsetY) 
-                timer2 = null;       
-            }, 500)
-            
-        })
+        //     timer2 = setTimeout(function () {
+        //         console.log(e.offsetX, e.offsetY)
+        //         timer2 = null;
+        //     }, 500)
 
+        // })
 
+        // const dom = document.querySelector("#throttle")
+        
+        // dom.addEventListener("drag", throttle(submit, 100))
+        
+        // function submit(e) {
+        //     console.log(e.offsetX, e.offsetY)
+        // }
 
+        // function throttle(fn, delay = 500) {
+        //     let timer = null
+        //     return function() {
+        //         if(timer) {
+        //             return
+        //         }
+        //         timer = setTimeout(() => {
+        //             fn.call(this, ...arguments)
+        //             timer = null
+        //         }, delay)
+        //     }
+        // }
 
 
     </script>
 
-    
+
 </body>
 
 </html>

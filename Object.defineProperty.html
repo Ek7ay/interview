@@ -1,25 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Object.defineProperty</title>
 </head>
+
 <body>
+    姓名：<div id="name"></div>
+    年龄：<div id="age"></div>
+    <input type="text" oninput="user.name = this.value">
+    <input type="date" onchange="user.birth = this.value">
     <script>
-        const data = {}
-        let name = "zhangsan"
-        Object.defineProperty(data, "name", {
-            get: function() {
-                console.log("get")
-                return name
-            },
-            set: function(val) {
-                name = val
-                console.log("set")
+        // const data = {}
+        // let name = "zhangsan"
+        // Object.defineProperty(data, "name", {
+        //     get: function() {
+        //         console.log("get")
+        //         return name
+        //     },
+        //     set: function(val) {
+        //         name = val
+        //         console.log("set")
+        //     }
+        // })
+
+        // let inner = user.name   //之前的值 
+        // Object.defineProperty(user, 'name', {
+        //     get() {
+        //         console.log('有人读取name属性')
+        //         return inner
+        //     },
+
+        //     set(val) {
+        //         inner = val
+        //         showName();
+        //     }
+        // })
+
+
+        const user = {
+            name: '曹彦平',
+            birth: '1990-6-10'
+        }
+        observe(user);
+
+        function showName() {
+            const name = document.getElementById('name')
+            name.innerHTML = user.name
+        }
+
+        function showAge() {
+            const ageDom = document.getElementById('age')
+            const today = new Date();
+            const birth = new Date(user.birth);
+            let _age = today.getFullYear() - birth.getFullYear();
+            const monthDifference = today.getMonth() - birth.getMonth();
+            if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birth.getDate())) {
+                _age--;
             }
-        })
+            ageDom.innerHTML = _age
+        }
+
+
+        autorun(showName)
+        autorun(showAge)
+
+        function observe(obj = {}) {
+            for (let key in obj) {
+                let internalValue = obj[key]
+                const funcs = []
+                Object.defineProperty(obj, key, {
+                    get() {
+                        //依赖收集，记录是哪个函数在用
+                        console.log('有人读取属性' + key)
+                        if (window._func && !funcs.includes(window._func)) {
+                            funcs.push(window._func)
+                        }
+                        return internalValue
+                    },
+                    set(val) {
+                        internalValue = val
+                        console.log(val, 666)
+                        funcs.forEach(item => {
+                            item();
+                        })
+
+                    }
+
+                })
+            }
+        }
+
+        function autorun(fn) {
+            window._func = fn;
+            fn();
+            window._func = null
+        }
+
+
+
+
+
     </script>
 </body>
+
 </html>
